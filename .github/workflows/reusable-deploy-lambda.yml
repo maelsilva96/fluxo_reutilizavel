@@ -43,8 +43,8 @@ jobs:
   execute-docker:
     name: Build and publish docker container
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    needs: execute-test
+    timeout-minutes: 15
+    needs: execute-test-go
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v1
