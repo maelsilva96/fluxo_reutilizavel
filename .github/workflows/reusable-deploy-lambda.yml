@@ -37,6 +37,8 @@ jobs:
   execute-test-go:
     if: inputs.language == 'go'
     uses: ./.github/workflows/reusable-test-go.yml
+    with:
+      version_language: ${{ inputs.version_language }}
 
   execute-docker:
     name: Build and publish docker container
