@@ -1,0 +1,30 @@
+name: Reusable workflow Lambda Deploy
+
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  workflow_call:
+    inputs:
+      version_language:
+        default: 'stable'
+        type: string
+
+jobs:
+  execute-test:
+    name: Run Tests GO
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ${{ inputs.version_language }}
+      - name: Run go mod download
+        if: inputs.language == 'go'
+        run: go mod download
+      - name: Run go tests
+        if: inputs.language == 'go'
+        run: go test ./test/...
