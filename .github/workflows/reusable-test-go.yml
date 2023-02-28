@@ -1,4 +1,4 @@
-name: Reusable workflow Lambda Deploy
+name: Reusable Test GO
 
 permissions:
   id-token: write
