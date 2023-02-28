@@ -52,7 +52,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-session-name: deploy_infra
-          aws-region: sa-east-1
+          aws-region: ${{ secrets.region }}
           role-to-assume: arn:aws:iam::${{ secrets.account_id }}:role/${{ secrets.role }}
       - name: Login AWS ECR with Docker
         run: |
@@ -79,7 +79,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-session-name: deploy_infra
-          aws-region: sa-east-1
+          aws-region: ${{ secrets.region }}
           role-to-assume: arn:aws:iam::${{ secrets.account_id }}:role/${{ secrets.role }}
       - name: Get tfstate
         continue-on-error: true

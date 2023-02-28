@@ -16,7 +16,7 @@
     
     jobs:
       deploy-go:
-        uses: maelsilva96/fluxo_reutilizavel/github/workflows/reusable-deploy-lambda.yml
+        uses: maelsilva96/fluxo_reutilizavel/.github/workflows/reusable-deploy-lambda.yml@master
         with:
           s3: "meu-s3-bucket-nome"
           repository: ${{ github.event.repository.full_name }}
